@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavigationBar from './components/NavigationBar';
+import FormText from "./components/FormText";
+import About from "./components/About";
+import {useState} from "react";
 function App() {
+    const[darkMode, setdarkMode] =useState(
+    {
+        color: 'white',
+        backgroundColor: 'black'
+        // data-bs-theme="dark"
+    })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div style={darkMode} data-bs-theme="dark">
+          <NavigationBar app_name="My React App"/>
+          <FormText heading="Please enter the text to analyze"/>
+          <About/>
+      </div>
   );
 }
 
